@@ -4,6 +4,6 @@ class Pokemon
   
   def self.initialize(id:, name:, type:, db:)
     
-    @db = db
+    
   end
 end
