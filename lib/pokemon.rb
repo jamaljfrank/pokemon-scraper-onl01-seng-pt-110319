@@ -6,6 +6,12 @@ class Pokemon
   end
   
   def self.save
-    new_pokemon = self.new
+    sql = <<-SQL
+      INSERT INTO pokemon (id, name, type, db)
+      VALUES (?, ?, ?, ?)
+    SQL
+ 
+    DB[:conn].execute(sql, self.name, self.album)
+    @id = DB[:conn].execute("SELECT last_insert_rowid() FROM songs")[0][0]
     
 end
