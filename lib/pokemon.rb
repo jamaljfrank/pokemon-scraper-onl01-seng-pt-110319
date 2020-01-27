@@ -5,10 +5,10 @@ class Pokemon
   def initialize(id:, name:, type:, db:)
   end
   
-  def save
+  def save(name, type, db)
     sql = <<-SQL
-      INSERT INTO pokemon (id, name, type, db)
-      VALUES (?, ?, ?, ?)
+      INSERT INTO pokemon (name, type, db)
+      VALUES (?, ?, ?)
     SQL
  
     DB[:conn].execute(sql, self.name, self.type, self.db)
